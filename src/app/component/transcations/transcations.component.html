@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .transaction-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transaction-item {
+            border-bottom: 1px solid #ced4da;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .transaction-item span {
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div  style="margin-top: 30px;">
+        <p style="text-align: center;color: rgb(0, 0, 0);">Transaction History</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">AccountId</th>
+          <th scope="col">Account Holder name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Transaction Type</th>
+          <th scope="col">Current Balance</th>
+        </tr>
+    </thead>
+        <tbody *ngFor="let Transaction of AllTranscations">
+            <tr>
+                <td>{{Transaction.userId}}</td>
+                <td>{{Transaction.name}}</td>
+                <td>{{Transaction.amount}}</td>
+                <td>{{Transaction.transactionalType.type}}</td>
+                <td>{{Transaction.currentBalance}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    
+
+
+</body>
+</html>

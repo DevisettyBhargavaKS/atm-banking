@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM PIN Entry</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        margin-top: 100px;
+      }
+
+      .card {
+        border: 1px solid #ced4da;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header">ATM PIN Entry</div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="pin">Enter Your ATM PIN:</label>
+                <input
+                  type="password"
+                  placeholder="****"
+                  class="form-control"
+                  id="pin"
+                  name="pin"
+                  maxlength="4"
+                  password
+                  required
+                  [(ngModel)]="pinnumber"
+                  name="pinnumber"
+                  pattern="[0-9]{4}$"
+                  #ModelNumber="ngModel"
+                  [ngClass]="ModelNumber.invalid && ModelNumber.dirty ? 'is-invalid' : ''"
+                />
+                <div *ngIf="ModelNumber.invalid" class="invalid-feedback">please enter 4 digit pin number</div>
+    <div style="color: red;">{{errorMessage}}</div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                (click)="submit()"
+                routerLink="/credit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
